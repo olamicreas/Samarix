@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Samarix Cloud Technology and Security Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #001f3f; /* Deep navy blue */
+            --accent-color: #1abc9c; /* Teal for accents */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #fff;
+            --black-icon: #000000; /* Black for specific icons */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(26, 188, 156, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(26, 188, 156, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(26, 188, 156, 0.3); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .cta-btn:active {
+            transform: skewX(-10deg);
+            transition: transform 0.1s ease;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #003087);
+            color: var(--white);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: var(--primary-color);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 36px;
+            margin-right: 12px;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: var(--white);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .hamburger:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100vh;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding-top: 80px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+                animation: slideIn 0.3s ease-in-out;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background-color: var(--primary-color);
+            background-image: url('https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1920') !important;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.5));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4);
+            animation: glow 2s infinite;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background: #16a085;
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(26, 188, 156, 0.7);
+            animation: none;
+        }
+
+        /* Overview Section */
+        .overview {
+            padding: 100px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .overview h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .overview h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .overview p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), #003087);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .mission-vision h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .mission-vision h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .mission-vision-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mission-vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .mission-vision-card i {
+            font-size: 50px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .mission-vision-card h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .mission-vision-card p {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .team h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .team h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            font-size: 24px;
+            margin: 15px 0 10px;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .team-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), #003087);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .values h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .values h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-card i {
+            font-size: 50px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .value-card p {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #000, var(--primary-color));
+            color: var(--white);
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 220px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            position: relative;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 28px;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            .mission-vision-grid,
+            .team-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" data-aos="fade-down">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cloud"></i> Samarix
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="index.html#industries">Industries</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 data-aos="fade-up" data-aos-delay="200">About Samarix</h1>
+            <p data-aos="fade-up" data-aos-delay="400">Discover our journey, values, and commitment to empowering businesses through innovative cloud and security solutions.</p>
+            <a href="index.html#contact" class="cta-btn" data-aos="zoom-in" data-aos-delay="600">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Story</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Founded over a decade ago, Samarix Cloud Technology and Security Group has grown into a global leader in cloud computing and cybersecurity. Our mission began with a simple goal: to provide secure, scalable, and innovative technology solutions that empower businesses to thrive in a digital-first world. With a team of dedicated experts and a commitment to excellence, we’ve helped over 500 clients across various industries achieve their goals with cutting-edge cloud infrastructure and robust security measures.</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <h2 data-aos="fade-up">Mission & Vision</h2>
+            <div class="mission-vision-grid">
+                <div class="mission-vision-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Our Mission</h3>
+                    <p>To deliver secure, innovative, and scalable cloud solutions that drive business success and protect against evolving digital threats.</p>
+                </div>
+                <div class="mission-vision-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be the global leader in cloud technology and security, empowering businesses to achieve limitless possibilities in a connected world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                    <h3>John Doe</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                    <h3>Jane Smith</h3>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                    <h3>Michael Brown</h3>
+                    <p>Head of Cybersecurity</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                    <h3>Emily Davis</h3>
+                    <p>Lead Cloud Architect</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security</h3>
+                    <p>Prioritizing the protection of our clients’ data and systems.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>Driving progress through cutting-edge technology solutions.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaboration</h3>
+                    <p>Partnering with clients to achieve shared success.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-star"></i>
+                    <h3>Excellence</h3>
+                    <p>Delivering unparalleled quality in every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section" data-aos="fade-up">
+                <h4>About Samarix</h4>
+                <p>Leading the way in cloud and security solutions for a connected world.</p>
+            </div>
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="index.html#industries">Industries</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-envelope"></i> Email: info@samarix.com</p>
+                <p><i class="fas fa-phone"></i> Phone: +1 (123) 456-7890</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: 123 Tech Street, Cloud City, USA</p>
+            </div>
+        </div>
+        <div class="social-icons" data-aos="fade-up" data-aos-delay="300">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Samarix Cloud Technology and Security Group. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.querySelector('i').classList.remove('fa-times');
+                    hamburger.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
