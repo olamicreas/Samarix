@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samarix Cloud Technology and Security Group</title>
+    <title>Samarix Cloud Technology and Security</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #001f3f; /* Deep navy blue */
-            --accent-color: #1abc9c; /* Teal for accents */
+            --primary-color: #001f3f;
+            --accent-color: #1abc9c;
             --text-color: #333;
             --light-bg: #f8f9fa;
             --white: #fff;
-            --black-icon: #000000; /* Black for specific icons */
+            --black-icon: #000000;
         }
 
         * {
@@ -25,7 +25,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Enable smooth scrolling */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -146,7 +146,6 @@
             color: var(--accent-color);
         }
 
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             font-size: 28px;
@@ -197,7 +196,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background-color: var(--primary-color); /* Fallback color */
+            background-color: var(--primary-color);
             background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920') !important;
             background-size: cover;
             background-position: center;
@@ -562,12 +561,33 @@
             margin-bottom: 30px;
         }
 
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-logo img {
+            width: 80%;
+            max-width: 200px;
+            display: block;
+            margin: 0 auto -10px;
+            margin-top: -5%;
+        }
+
         .footer-section h4 {
             font-family: 'Playfair Display', serif;
             font-size: 22px;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             color: var(--accent-color);
             position: relative;
+            line-height: 1.2;
         }
 
         .footer-section h4::after {
@@ -576,7 +596,7 @@
             height: 2px;
             background: var(--accent-color);
             position: absolute;
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
         }
 
@@ -653,6 +673,16 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .footer-logo img {
+                width: 80%;
+                max-width: 220px;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -666,7 +696,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html#about">About</a></li>
                 <li><a href="#industries">Industries</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -679,7 +709,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <h1 data-aos="fade-up" data-aos-delay="200">Samarix Cloud Technology and Security Group</h1>
+            <h1 data-aos="fade-up" data-aos-delay="200">Samarix Cloud Technology and Security</h1>
             <p data-aos="fade-up" data-aos-delay="400">Transform your business with secure, scalable, and innovative cloud solutions.</p>
             <a href="#contact" class="cta-btn" data-aos="zoom-in" data-aos-delay="600">Book a Consultation</a>
         </div>
@@ -791,7 +821,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-section" data-aos="fade-up">
-                <h4>About Samarix</h4>
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Samarix Logo">
+                </div>
                 <p>Leading the way in cloud and security solutions for a connected world.</p>
             </div>
             <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
@@ -799,7 +831,7 @@
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="about.html#about">About</a></li>
                     <li><a href="#industries">Industries</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -818,7 +850,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="copyright">
-            &copy; 2025 Samarix Cloud Technology and Security Group. All rights reserved.
+            &copy; 2025 Samarix Cloud Technology and Security. All rights reserved.
         </div>
     </footer>
 
@@ -847,7 +879,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Close mobile menu if open
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     hamburger.querySelector('i').classList.remove('fa-times');
@@ -868,7 +899,7 @@
 
         // Counter Animation for Stats
         const counters = document.querySelectorAll('.counter');
-        const speed = 200; // Animation speed (lower is faster)
+        const speed = 200;
 
         const animateCounters = () => {
             const aboutSection = document.querySelector('#about');

@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Samarix Cloud Technology and Security Group</title>
+    <title>About Us - Samarix Cloud Technology and Security</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #001f3f; /* Deep navy blue */
-            --accent-color: #1abc9c; /* Teal for accents */
+            --primary-color: #001f3f;
+            --accent-color: #1abc9c;
             --text-color: #333;
             --light-bg: #f8f9fa;
             --white: #fff;
-            --black-icon: #000000; /* Black for specific icons */
+            --black-icon: #000000;
         }
 
         * {
@@ -224,7 +224,7 @@
             position: relative;
             z-index: 1;
             max-width: 900px;
-            padding-top: 100px; /* Added to push content below navbar */
+            padding-top: 100px;
         }
 
         .hero h1 {
@@ -441,12 +441,33 @@
             margin-bottom: 30px;
         }
 
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-logo img {
+            width: 80%;
+            max-width: 200px;
+            display: block;
+            margin: 0 auto -10px;
+            margin-top: -5%;
+        }
+
         .footer-section h4 {
             font-family: 'Playfair Display', serif;
             font-size: 22px;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             color: var(--accent-color);
             position: relative;
+            line-height: 1.2;
         }
 
         .footer-section h4::after {
@@ -455,7 +476,7 @@
             height: 2px;
             background: var(--accent-color);
             position: absolute;
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
         }
 
@@ -509,7 +530,7 @@
             }
 
             .hero-content {
-                padding-top: 80px; /* Adjusted for mobile */
+                padding-top: 80px;
             }
 
             .hero h1 {
@@ -539,6 +560,16 @@
             .footer-section h4::after {
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .footer-logo img {
+                width: 80%;
+                max-width: 220px;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -576,7 +607,7 @@
     <section class="overview">
         <div class="container">
             <h2 data-aos="fade-up">Our Story</h2>
-            <p data-aos="fade-up" data-aos-delay="200">Founded over a decade ago, Samarix Cloud Technology and Security Group has grown into a global leader in cloud computing and cybersecurity. Our mission began with a simple goal: to provide secure, scalable, and innovative technology solutions that empower businesses to thrive in a digital-first world. With a team of dedicated experts and a commitment to excellence, we’ve helped over 500 clients across various industries achieve their goals with cutting-edge cloud infrastructure and robust security measures.</p>
+            <p data-aos="fade-up" data-aos-delay="200">Founded over a decade ago, Samarix Cloud Technology and Security has grown into a global leader in cloud computing and cybersecurity. Our mission began with a simple goal: to provide secure, scalable, and innovative technology solutions that empower businesses to thrive in a digital-first world. With a team of dedicated experts and a commitment to excellence, we’ve helped over 500 clients across various industries achieve their goals with cutting-edge cloud infrastructure and robust security measures.</p>
         </div>
     </section>
 
@@ -632,7 +663,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-section" data-aos="fade-up">
-                <h4>About Samarix</h4>
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Samarix Logo">
+                </div>
                 <p>Leading the way in cloud and security solutions for a connected world.</p>
             </div>
             <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
@@ -659,7 +692,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="copyright">
-            &copy; 2025 Samarix Cloud Technology and Security Group. All rights reserved.
+            &copy; 2025 Samarix Cloud Technology and Security. All rights reserved.
         </div>
     </footer>
 
@@ -688,7 +721,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Close mobile menu if open
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     hamburger.querySelector('i').classList.remove('fa-times');
